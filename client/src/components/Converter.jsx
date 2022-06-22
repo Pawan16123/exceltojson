@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 const Converter = () => {
     
     const [recFile, setRecFile] = useState('');
+    const [reqSheetName, setReqSheetName] = useState('');
+    const [jsonData, setJsonData] = useState('');
     const fileReceived = (file)=>{
-        console.log('File Received',file);
         setRecFile(file.target.files[0]);
     }
     const converter = (e)=>{
@@ -15,7 +16,15 @@ const Converter = () => {
             fileReader.readAsBinaryString(recFile);
 
             fileReader.onload = (e)=>{
-                console.log(e.target.result);
+                let data = e.target.result;
+                let reqData = window.XLSX.read(data, {type:'binary'});
+                reqData.SheetNames.forEach(sheet=>{
+                    if(reqSheetName !== '' && sheet !== reqSheetName ) return;
+                    console.log(sheet);
+                    let rowToObj = window.XLSX.utils.sheet_to_row_object_array(reqData.Sheets[sheet]);
+                    console.log(rowToObj);
+                    setJsonData(JSON.stringify(rowToObj));
+                })
             }
 
             console.log(fileReader);
@@ -30,9 +39,15 @@ const Converter = () => {
 
       <>
         <form action="#" id='converterForm'>
-            <input type="file" id="fileSelect" accept=".xlsx, .xls, .csv" onInput={(e)=>fileReceived(e)}/>
+            <div>
+                <input type="file" id="fileSelect" accept=".xlsx, .xls, .csv" onInput={(e)=>fileReceived(e)}/>
+            </div>
+            <div>
+                <input type="text" placeholder='Required Sheet Name' className='reqSheet' onInput={(e)=>{setReqSheetName(e.target.value)}}/>
+            </div>
             <button type="submit" id="submitButton" onClick={(e)=>converter(e)}>Converter</button>
         </form>
+        <div className="jsonData">{jsonData}</div>
       </>
   )
 }

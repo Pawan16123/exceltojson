@@ -24,3 +24,9 @@ code {
   border-radius: 20px;
   border: none; 
 }
+
+#fileSelect, .reqSheet{
+  width: 190px;
+  margin: 10px 0px;
+  line-height: 30px;
+}
