@@ -22,8 +22,9 @@ const Converter = () => {
                     if(reqSheetName !== '' && sheet !== reqSheetName ) return;
                     console.log(sheet);
                     let rowToObj = window.XLSX.utils.sheet_to_row_object_array(reqData.Sheets[sheet]);
-                    console.log(rowToObj);
-                    setJsonData(JSON.stringify(rowToObj));
+                    let Finaldata = JSON.stringify(rowToObj,undefined,3);
+                    console.log(Finaldata);
+                    setJsonData(Finaldata);
                 })
             }
 
@@ -53,3 +54,8 @@ const Converter = () => {
 }
 
 export default Converter;
+
+
+//TO do 
+// Add button to store the json data in a file.
+// change UI
