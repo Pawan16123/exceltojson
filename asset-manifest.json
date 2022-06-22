@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/exceltojson/static/css/main.4028d369.css",
-    "main.js": "/exceltojson/static/js/main.2de9dc55.js",
+    "main.js": "/exceltojson/static/js/main.96852434.js",
     "static/media/logo.svg": "/exceltojson/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/exceltojson/index.html",
     "main.4028d369.css.map": "/exceltojson/static/css/main.4028d369.css.map",
-    "main.2de9dc55.js.map": "/exceltojson/static/js/main.2de9dc55.js.map"
+    "main.96852434.js.map": "/exceltojson/static/js/main.96852434.js.map"
   },
   "entrypoints": [
     "static/css/main.4028d369.css",
-    "static/js/main.2de9dc55.js"
+    "static/js/main.96852434.js"
   ]
 }
