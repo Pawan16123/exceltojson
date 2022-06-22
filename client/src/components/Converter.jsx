@@ -46,7 +46,7 @@ const Converter = () => {
             <div>
                 <input type="text" placeholder='Required Sheet Name' className='reqSheet' onInput={(e)=>{setReqSheetName(e.target.value)}}/>
             </div>
-            <button type="submit" id="submitButton" onClick={(e)=>converter(e)}>Converter</button>
+            <button type="submit" id="submitButton" onClick={(e)=>converter(e)}>Convert</button>
         </form>
         <div className="jsonData">{jsonData}</div>
       </>
